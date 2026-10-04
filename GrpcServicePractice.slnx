@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="GrpcClient.Console/GrpcClient.ConsoleApp.csproj" Id="ca590e16-0c85-49a9-a680-05f146fbf420" />
+  <Project Path="GrpcServer/GrpcServer.csproj" />
+</Solution>
