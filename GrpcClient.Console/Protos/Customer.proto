@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer.Protos";
+
+//指定 Protobuf 包名，用于区分不同服务和消息。
+package customer;
+
+//定义客户请求消息类型，注意在Protobuf语法中，int类型使用 int32 或 int64 来表示，这里使用 int32。
+message CustomerLookupRequest {
+  int32 id = 1;
+}
+
+//定义客户响应消息类型，后面的数字是字段的唯一标识符，用于 Protobuf 的序列化和反序列化。
+message CustomerLookupReply {
+	int32 id=1;
+	string name = 2;
+	string email = 3;
+	string phone = 4;
+	bool isActive = 5;
+	int32 age = 6;
+}
+
+//定义类型为 Customer 的服务
+//包含一个 GetCustomerInfo 方法，该方法接收 CustomerLookupRequest 消息并返回 CustomerLookupReply 消息。
+service Customer {
+	rpc GetCustomerInfo (CustomerLookupRequest) returns (CustomerLookupReply);
+}
