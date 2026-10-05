@@ -6,16 +6,20 @@ namespace GrpcClient.ConsoleApp
     {
         static async Task Main(string[] args)
         {
-            await CallGrpcServiceAsync();
+            await CallGrpcServiceGreetAsync();
         }
 
-        static async Task CallGrpcServiceAsync()
+        /// <summary>
+        /// 请求gRPC服务端的Greet服务
+        /// </summary>
+        /// <returns></returns>
+        static async Task CallGrpcServiceGreetAsync()
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
             var client = new Greeter.GreeterClient(channel);
             while(true)
             {
-                Console.WriteLine("Type 'exit' to quit or press Enter to call the gRPC service...");
+                Console.WriteLine("Type 'exit' to quit or press Enter to call the gRPC 'Greet' service...");
                 string input = Console.ReadLine();
                 if (input == "exit")
                 {
